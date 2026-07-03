@@ -1,15 +1,16 @@
 const navLinks = [
-  { href: "#about", label: "介绍" },
-  { href: "#projects", label: "作品" },
-  { href: "#contact", label: "联系" },
+  { href: "/#about", label: "介绍" },
+  { href: "/pricing", label: "价格" },
+  { href: "/#projects", label: "作品" },
+  { href: "/#contact", label: "联系" },
 ];
 
 export default function Header() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-black/10 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="text-lg font-black uppercase tracking-tight text-black">
-          你的名字
+        <a href="/#top" className="text-lg font-black uppercase tracking-tight text-black">
+          你好，我叫MAX
         </a>
         <nav className="hidden items-center gap-10 sm:flex">
           {navLinks.map((link) => (
@@ -23,7 +24,7 @@ export default function Header() {
           ))}
         </nav>
         <a
-          href="#contact"
+          href="/#contact"
           aria-label="联系我"
           className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--accent)] text-black transition-transform hover:scale-105"
         >
