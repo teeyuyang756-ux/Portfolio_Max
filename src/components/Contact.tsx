@@ -17,10 +17,9 @@ export default function Contact() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>
-            <h2 className="text-4xl font-black uppercase leading-[1.05] tracking-tight sm:text-5xl">
-              目前只接
-              <span className="ml-2 bg-[var(--accent)] px-2 text-black">4</span>
-              单
+            <h2 className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
+              脑力有限，只接能力范围。
+              <span className="mt-2 inline-block bg-[var(--accent)] px-2 text-black">先到先得哦！</span>
             </h2>
             <a
               href={WHATSAPP_HREF}

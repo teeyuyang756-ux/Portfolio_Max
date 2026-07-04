@@ -2,11 +2,13 @@ import Reveal from "./Reveal";
 
 const deliverables = [
   "每周 3 支视频 + 2 张图片内容",
+  "IG / Facebook / TikTok / 小红书",
   "内容策划",
   "拍摄设备提供",
   "剪辑制作",
   "文案撰写",
   "上传与账号管理",
+  "Influencer 对接",
 ];
 
 function CheckIcon() {

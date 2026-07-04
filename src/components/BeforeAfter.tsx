@@ -9,7 +9,7 @@ const metrics = [
     before: "1.2%",
     after: "8.5%",
   },
-  { label: "单条内容平均曝光量", before: "100", after: "10,000" },
+  { label: "单条内容平均曝光量", before: "100~", after: "20K++" },
 ];
 
 function ArrowIcon() {
@@ -26,9 +26,8 @@ export default function BeforeAfter() {
       <Reveal>
         <h2 className="flex items-center gap-2 text-3xl font-black uppercase tracking-tight text-black sm:text-4xl">
           <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
-          Before &amp; After 数据对比
+          Before &amp; After 
         </h2>
-        <p className="mt-3 max-w-lg text-sm text-black/50">合作 3 个月内的真实账号数据变化（占位数据，待替换）</p>
       </Reveal>
 
       <Reveal delay={100} className="mt-10 rounded-3xl bg-black p-6 sm:p-10">

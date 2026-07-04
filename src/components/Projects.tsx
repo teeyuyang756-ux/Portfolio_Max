@@ -79,7 +79,7 @@ export default function Projects() {
             <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
             领域作品
           </h2>
-          <p className="mt-3 text-sm text-black/50">悬停展开 · 共 9 支作品</p>
+          <p className="mt-3 text-sm text-black/50">不管是个人IP 还是 企业IP 我们都轻松拿捏！</p>
         </div>
       </Reveal>
 
