@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "你的名字 · 个人网站",
-  description: "全栈开发者的个人网站，介绍、作品与联系方式。",
+  title: "你好我叫Max，这是我的服务内容和Portfolio",
+  description: "在Marketing Agency Company 有两年经验，现在在寻找新的挑战和机会，希望我们有朝一日能",
 };
 
 export default function RootLayout({
