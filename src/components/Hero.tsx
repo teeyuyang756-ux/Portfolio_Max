@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="relative flex min-h-[560px] flex-col p-8 sm:p-12">
           <Reveal className="max-w-lg">
             <span className="inline-block bg-[var(--accent)] px-3 py-1 text-xs font-bold uppercase tracking-wide text-black">
-              个人网站 · 全栈开发者
+             Social Media Marketing Freelancer
             </span>
             <h1 className="mt-6 text-5xl font-black uppercase leading-[1.5] tracking-tight text-white sm:text-6xl">
               策划到发布
