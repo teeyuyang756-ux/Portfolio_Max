@@ -7,15 +7,15 @@ import Reveal from "./Reveal";
 type Work = { src: string; label: string };
 
 const works: Work[] = [
-  { src: "/work-1.mp4", label: "房产" },
-  { src: "/work-2.mp4", label: "房产" },
-  { src: "/work-3.mp4", label: "房产" },
-  { src: "/work-4.mp4", label: "房产" },
-  { src: "/work-5.mp4", label: "房产" },
-  { src: "/work-6.mp4", label: "美食 / 餐厅" },
-  { src: "/work-7.mp4", label: "装修 / 室内设计" },
-  { src: "/work-8.mp4", label: "装修 / 室内设计" },
-  { src: "/work-9.mp4", label: "装修 / 室内设计" },
+  { src: "/work-1.mp4", label: "潮流服饰" },
+  { src: "/work-2.mp4", label: "潮流服饰" },
+  { src: "/work-3.mp4", label: "F&B" },
+  { src: "/work-4.mp4", label: "F&B" },
+  { src: "/work-5.mp4", label: "装修 / 室内设计" },
+  { src: "/work-6.mp4", label: "装修 / 室内设计" },
+  { src: "/work-7.mp4", label: "房产" },
+  { src: "/work-8.mp4", label: "房产" },
+  { src: "/work-9.mp4", label: "房产" },
 ];
 
 function PlayIcon() {
