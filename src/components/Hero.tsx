@@ -27,14 +27,14 @@ export default function Hero() {
         <div className="relative flex min-h-[560px] flex-col p-8 sm:p-12">
           <Reveal className="max-w-lg">
             <span className="inline-block bg-[var(--accent)] px-3 py-1 text-xs font-bold uppercase tracking-wide text-black">
-             Social Media Marketing Freelancer
+             Social Media Marketing 接单中
             </span>
             <h1 className="mt-6 text-5xl font-black uppercase leading-[1.5] tracking-tight text-white sm:text-6xl">
               策划到发布
               <br />
               <span className="box-decoration-clone bg-[var(--accent)] px-2 py-1 text-black">Social Media</span>
               <br />
-              交给我和我们
+              交给我
             </h1>
             <p className="mt-6 max-w-md text-base leading-7 text-white/70">
               两年的 Agency 经验。与其一次过 handle 十几二十家公司的内容，

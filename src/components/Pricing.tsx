@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 
 const deliverables = [
-  "每周 3 支视频 + 2 张图片内容",
+  "每月20-22支内容 (每周3个视频+2个图片内容)",
   "IG / Facebook / TikTok / 小红书",
   "内容策划",
   "拍摄设备提供",
@@ -42,7 +42,7 @@ export default function Pricing() {
           <span className="text-5xl font-black text-[var(--accent)] sm:text-6xl">RM2,800</span>
           <span className="text-lg font-bold text-white/50">/ 月</span>
         </div>
-        <p className="mt-2 text-xs text-white/40">预计一个月会有 12-13 个视频 + 8-9 个图形内容</p>
+        <p className="mt-2 text-xs text-white/40">预计增长15%-30%</p>
 
         <ul className="mt-8 space-y-4">
           {deliverables.map((item) => (
