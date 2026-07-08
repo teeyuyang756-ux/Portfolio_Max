@@ -1,16 +1,6 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
-
-const metrics = [
-  { label: "粉丝数", before: "1,200", after: "12,000" },
-  {
-    label: "平均互动率",
-    sublabel: "(点赞 + 评论 + 分享 ÷ 粉丝数)",
-    before: "1.2%",
-    after: "8.5%",
-  },
-  { label: "单条内容平均曝光量", before: "100~", after: "20K++" },
-];
+import { dictionaries, type Lang } from "@/lib/i18n";
 
 function ArrowIcon() {
   return (
@@ -20,13 +10,15 @@ function ArrowIcon() {
   );
 }
 
-export default function BeforeAfter() {
+export default function BeforeAfter({ lang }: { lang: Lang }) {
+  const t = dictionaries[lang].results;
+
   return (
     <section id="results" className="mx-auto max-w-6xl border-t border-black/10 px-6 py-24">
       <Reveal>
         <h2 className="flex items-center gap-2 text-3xl font-black uppercase tracking-tight text-black sm:text-4xl">
           <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
-          Before &amp; After 
+          {t.heading}
         </h2>
       </Reveal>
 
@@ -42,27 +34,22 @@ export default function BeforeAfter() {
           </span>
         </div>
         <p className="mt-4 text-center text-xs font-medium uppercase tracking-wide text-white/40">
-          单条内容平均曝光量变化
+          {t.growthCaption}
         </p>
       </Reveal>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <Reveal className="rounded-3xl border border-black/10 bg-zinc-100 p-6 sm:p-8">
           <span className="inline-block rounded-full bg-black/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-black/50">
-            Before
+            {t.before}
           </span>
 
           <div className="relative mx-auto mt-6 aspect-9/16 w-full max-w-[220px] overflow-hidden rounded-2xl grayscale">
-            <Image
-              src="/before-content.png"
-              alt="合作前内容截图"
-              fill
-              className="object-cover opacity-70"
-            />
+            <Image src="/before-content.png" alt={t.beforeAlt} fill className="object-cover opacity-70" />
           </div>
 
           <div className="mt-8 space-y-5">
-            {metrics.map((metric) => (
+            {t.metrics.map((metric) => (
               <div key={metric.label} className="flex items-baseline justify-between border-b border-black/10 pb-3">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wide text-black/40">{metric.label}</p>
@@ -76,20 +63,15 @@ export default function BeforeAfter() {
 
         <Reveal delay={150} className="rounded-3xl bg-[var(--accent)] p-6 sm:p-8">
           <span className="inline-block rounded-full bg-black px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
-            After
+            {t.after}
           </span>
 
           <div className="relative mx-auto mt-6 aspect-9/16 w-full max-w-[220px] overflow-hidden rounded-2xl">
-            <Image
-              src="/after-content.png"
-              alt="合作后内容截图"
-              fill
-              className="object-cover"
-            />
+            <Image src="/after-content.png" alt={t.afterAlt} fill className="object-cover" />
           </div>
 
           <div className="mt-8 space-y-5">
-            {metrics.map((metric) => (
+            {t.metrics.map((metric) => (
               <div key={metric.label} className="flex items-baseline justify-between border-b border-black/20 pb-3">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wide text-black/60">{metric.label}</p>
@@ -102,9 +84,7 @@ export default function BeforeAfter() {
         </Reveal>
       </div>
 
-      <p className="mt-8 text-center text-xs leading-5 text-black/40">
-        * 以上数据为占位示意，实际效果将在项目完成后替换为真实数据。数据表现因账号基础、行业类目及内容类型而异，不构成收益保证或承诺。
-      </p>
+      <p className="mt-8 text-center text-xs leading-5 text-black/40">{t.disclaimer}</p>
     </section>
   );
 }

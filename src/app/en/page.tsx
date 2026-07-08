@@ -5,17 +5,17 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function HomeEn() {
   return (
     <div id="top" className="flex flex-1 flex-col bg-white">
       <Header />
       <main className="flex-1">
-        <Hero lang="zh" />
-        <BeforeAfter lang="zh" />
-        <Projects lang="zh" />
-        <Contact lang="zh" />
+        <Hero lang="en" />
+        <BeforeAfter lang="en" />
+        <Projects lang="en" />
+        <Contact lang="en" />
       </main>
-      <Footer lang="zh" />
+      <Footer lang="en" />
     </div>
   );
 }

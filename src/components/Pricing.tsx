@@ -1,15 +1,5 @@
 import Reveal from "./Reveal";
-
-const deliverables = [
-  "每月20-22支内容 (每周3个视频+2个图片内容)",
-  "IG / Facebook / TikTok / 小红书",
-  "内容策划",
-  "拍摄设备提供",
-  "剪辑制作",
-  "文案撰写",
-  "上传与账号管理",
-  "Influencer 对接",
-];
+import { dictionaries, type Lang } from "@/lib/i18n";
 
 function CheckIcon() {
   return (
@@ -25,27 +15,30 @@ function CheckIcon() {
   );
 }
 
-export default function Pricing() {
+export default function Pricing({ lang }: { lang: Lang }) {
+  const t = dictionaries[lang].pricing;
+  const contactHref = lang === "en" ? "/en#contact" : "/#contact";
+
   return (
     <section id="pricing" className="mx-auto max-w-6xl px-6 pt-32 pb-24">
       <Reveal>
         <h2 className="flex items-center gap-2 text-3xl font-black uppercase tracking-tight text-black sm:text-4xl">
           <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
-          价格方案
+          {t.heading}
         </h2>
-        <p className="mt-3 max-w-lg text-sm text-black/50">简单透明的合作报价</p>
+        <p className="mt-3 max-w-lg text-sm text-black/50">{t.subtitle}</p>
       </Reveal>
 
       <Reveal delay={100} className="mx-auto mt-10 max-w-xl rounded-3xl bg-black p-8 text-white sm:p-12">
-        <p className="text-sm font-bold uppercase tracking-wide text-white/50">标准配套</p>
+        <p className="text-sm font-bold uppercase tracking-wide text-white/50">{t.packageLabel}</p>
         <div className="mt-3 flex items-baseline gap-2">
           <span className="text-5xl font-black text-[var(--accent)] sm:text-6xl">RM2,800</span>
-          <span className="text-lg font-bold text-white/50">/ 月</span>
+          <span className="text-lg font-bold text-white/50">{t.per}</span>
         </div>
-        <p className="mt-2 text-xs text-white/40">预计增长15%-30%</p>
+        <p className="mt-2 text-xs text-white/40">{t.growthNote}</p>
 
         <ul className="mt-8 space-y-4">
-          {deliverables.map((item) => (
+          {t.deliverables.map((item) => (
             <li key={item} className="flex items-center gap-3 text-sm text-white/80">
               <CheckIcon />
               {item}
@@ -54,14 +47,14 @@ export default function Pricing() {
         </ul>
 
         <div className="mt-8 rounded-xl bg-white/5 p-4">
-          <p className="text-xs leading-5 text-white/40">* 不包含出镜 / 演员人员，如需要另外报价洽谈。</p>
+          <p className="text-xs leading-5 text-white/40">{t.note}</p>
         </div>
 
         <a
-          href="/#contact"
+          href={contactHref}
           className="mt-8 block w-full rounded-full bg-[var(--accent)] px-6 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
         >
-          预约咨询
+          {t.cta}
         </a>
       </Reveal>
     </section>

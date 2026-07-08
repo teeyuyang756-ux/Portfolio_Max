@@ -3,19 +3,20 @@
 import { useRef } from "react";
 import type { CSSProperties } from "react";
 import Reveal from "./Reveal";
+import { dictionaries, type Lang, type WorkLabelKey } from "@/lib/i18n";
 
-type Work = { src: string; label: string };
+type Work = { src: string; labelKey: WorkLabelKey };
 
 const works: Work[] = [
-  { src: "/work-1.mp4", label: "潮流服饰" },
-  { src: "/work-2.mp4", label: "潮流服饰" },
-  { src: "/work-3.mp4", label: "F&B" },
-  { src: "/work-4.mp4", label: "F&B" },
-  { src: "/work-5.mp4", label: "装修 / 室内设计" },
-  { src: "/work-6.mp4", label: "装修 / 室内设计" },
-  { src: "/work-7.mp4", label: "房产" },
-  { src: "/work-8.mp4", label: "房产" },
-  { src: "/work-9.mp4", label: "房产" },
+  { src: "/work-1.mp4", labelKey: "fashion" },
+  { src: "/work-2.mp4", labelKey: "fashion" },
+  { src: "/work-3.mp4", labelKey: "fnb" },
+  { src: "/work-4.mp4", labelKey: "fnb" },
+  { src: "/work-5.mp4", labelKey: "interior" },
+  { src: "/work-6.mp4", labelKey: "interior" },
+  { src: "/work-7.mp4", labelKey: "realestate" },
+  { src: "/work-8.mp4", labelKey: "realestate" },
+  { src: "/work-9.mp4", labelKey: "realestate" },
 ];
 
 function PlayIcon() {
@@ -26,7 +27,7 @@ function PlayIcon() {
   );
 }
 
-function VideoCard({ work }: { work: Work }) {
+function VideoCard({ src, label }: { src: string; label: string }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   const handleEnter = () => {
@@ -48,7 +49,7 @@ function VideoCard({ work }: { work: Work }) {
     >
       <video
         ref={ref}
-        src={`${work.src}#t=0.1`}
+        src={`${src}#t=0.1`}
         muted
         loop
         playsInline
@@ -59,13 +60,14 @@ function VideoCard({ work }: { work: Work }) {
         <PlayIcon />
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-3">
-        <p className="text-xs font-black uppercase leading-tight text-white">{work.label}</p>
+        <p className="text-xs font-black uppercase leading-tight text-white">{label}</p>
       </div>
     </div>
   );
 }
 
-export default function Projects() {
+export default function Projects({ lang }: { lang: Lang }) {
+  const t = dictionaries[lang].projects;
   const count = works.length;
 
   return (
@@ -77,9 +79,9 @@ export default function Projects() {
         <div>
           <h2 className="flex items-center gap-2 text-3xl font-black uppercase tracking-tight text-black sm:text-4xl">
             <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
-            领域作品
+            {t.heading}
           </h2>
-          <p className="mt-3 text-sm text-black/50">不管是个人IP 还是 企业IP 我们都轻松拿捏！</p>
+          <p className="mt-3 text-sm text-black/50">{t.subtitle}</p>
         </div>
       </Reveal>
 
@@ -104,7 +106,7 @@ export default function Projects() {
                 style={style}
                 className="video-stack-item absolute left-1/2 top-1/2 aspect-9/16 w-[150px]"
               >
-                <VideoCard work={work} />
+                <VideoCard src={work.src} label={t.labels[work.labelKey]} />
               </div>
             );
           })}
@@ -115,7 +117,7 @@ export default function Projects() {
       <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {works.map((work) => (
           <div key={work.src} className="aspect-9/16 w-[62vw] max-w-[240px] shrink-0 snap-center">
-            <VideoCard work={work} />
+            <VideoCard src={work.src} label={t.labels[work.labelKey]} />
           </div>
         ))}
       </div>

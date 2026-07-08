@@ -1,25 +1,23 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { dictionaries, type Lang } from "@/lib/i18n";
 
 const WHATSAPP_HREF = "https://wa.me/601155032212";
 
-export default function Contact() {
+export default function Contact({ lang }: { lang: Lang }) {
+  const t = dictionaries[lang].contact;
+
   return (
     <section id="contact" className="relative isolate overflow-hidden px-6 py-28 text-white">
-      <Image
-        src="/banner-3.png"
-        alt=""
-        fill
-        className="-z-20 object-cover"
-      />
+      <Image src="/banner-3.png" alt="" fill className="-z-20 object-cover" />
       <div className="absolute inset-0 -z-10 bg-black/80" />
 
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>
             <h2 className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl">
-              脑力有限，只接能力范围。
-              <span className="mt-2 inline-block bg-[var(--accent)] px-2 text-black">先到先得哦！</span>
+              {t.headingLine}
+              <span className="mt-2 inline-block bg-[var(--accent)] px-2 text-black">{t.headingHighlight}</span>
             </h2>
             <a
               href={WHATSAPP_HREF}
@@ -27,7 +25,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="mt-8 inline-block rounded-full bg-[var(--accent)] px-7 py-3 text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
             >
-              WhatsApp 联系我
+              {t.whatsappBtn}
             </a>
           </Reveal>
 
