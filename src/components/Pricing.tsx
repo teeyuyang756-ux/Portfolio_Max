@@ -29,34 +29,46 @@ export default function Pricing({ lang }: { lang: Lang }) {
         <p className="mt-3 max-w-lg text-sm text-black/50">{t.subtitle}</p>
       </Reveal>
 
-      <Reveal delay={100} className="mx-auto mt-10 max-w-xl rounded-3xl bg-black p-8 text-white sm:p-12">
-        <p className="text-sm font-bold uppercase tracking-wide text-white/50">{t.packageLabel}</p>
-        <div className="mt-3 flex items-baseline gap-2">
-          <span className="text-5xl font-black text-[var(--accent)] sm:text-6xl">RM2,800</span>
-          <span className="text-lg font-bold text-white/50">{t.per}</span>
-        </div>
-        <p className="mt-2 text-xs text-white/40">{t.growthNote}</p>
+      <div className="mx-auto mt-10 grid max-w-4xl gap-6 lg:grid-cols-2">
+        {t.packages.map((pkg, i) => (
+          <Reveal
+            key={pkg.name}
+            delay={i * 100}
+            className="relative flex flex-col rounded-3xl bg-black p-8 text-white sm:p-10"
+          >
+            {pkg.popular && (
+              <span className="absolute right-6 top-6 rounded-full bg-[var(--accent)] px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-black">
+                {t.popular}
+              </span>
+            )}
 
-        <ul className="mt-8 space-y-4">
-          {t.deliverables.map((item) => (
-            <li key={item} className="flex items-center gap-3 text-sm text-white/80">
-              <CheckIcon />
-              {item}
-            </li>
-          ))}
-        </ul>
+            <p className="text-sm font-bold uppercase tracking-wide text-white/50">{pkg.name}</p>
+            <div className="mt-3 flex items-baseline gap-2">
+              <span className="text-5xl font-black text-[var(--accent)] sm:text-6xl">{pkg.price}</span>
+              <span className="text-lg font-bold text-white/50">{t.per}</span>
+            </div>
+            {pkg.growthNote && <p className="mt-2 text-xs text-white/40">{pkg.growthNote}</p>}
 
-        <div className="mt-8 rounded-xl bg-white/5 p-4">
-          <p className="text-xs leading-5 text-white/40">{t.note}</p>
-        </div>
+            <ul className="mt-8 mb-8 space-y-4">
+              {pkg.deliverables.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-white/80">
+                  <CheckIcon />
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-        <a
-          href={contactHref}
-          className="mt-8 block w-full rounded-full bg-[var(--accent)] px-6 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
-        >
-          {t.cta}
-        </a>
-      </Reveal>
+            <a
+              href={contactHref}
+              className="mt-auto block w-full rounded-full bg-[var(--accent)] px-6 py-4 text-center text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
+            >
+              {t.cta}
+            </a>
+          </Reveal>
+        ))}
+      </div>
+
+      <p className="mt-8 text-center text-xs leading-5 text-black/40">{t.note}</p>
     </section>
   );
 }
