@@ -35,7 +35,6 @@ export default function Hero({ lang }: { lang: Lang }) {
               <br />
               {t.headlineLine3}
             </h1>
-            <p className="mt-6 max-w-md text-base leading-7 text-white/70">{t.desc}</p>
             <a
               href={projectsHref}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold uppercase tracking-wide text-black transition-transform hover:scale-105"
